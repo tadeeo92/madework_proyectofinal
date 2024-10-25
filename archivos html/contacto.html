@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contáctanos</title>
+    <link rel="stylesheet" href="style.css"> <!-- Asegúrate de incluir tu CSS -->
+</head>
+<body>
+    <header>
+        <h1>Contáctanos</h1>
+        <nav>
+            <ul>
+                <li onclick="window.location.href='index.html'">Inicio</li>
+                <li onclick="window.location.href='galeria.html'">Galería</li>
+                <li onclick="window.location.href='contacto.html'">Contacto</li>
+                <li onclick="window.location.href='stores.html'">Stores</li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="container">
+            <h2>Estamos aquí para ayudarte</h2>
+            <p>Si tienes alguna pregunta o necesitas ayuda, por favor completa el siguiente formulario y nos pondremos en contacto contigo lo antes posible.</p>
+            <p>Te sugerimos que incluyas detalles específicos sobre tu problema para que podamos brindarte una solución más rápida.</p>
+
+            <form id="contactForm" onsubmit="return submitContactForm(event)">
+                <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+                <br>
+                <input type="email" id="email" name="email" placeholder="Tu email" required>
+                <br>
+                <textarea id="message" name="message" placeholder="Escribe tu mensaje aquí..." rows="5" required></textarea>
+                <br>
+                <input type="submit" value="Enviar">
+            </form>
+            <p id="responseMessage"></p>
+        </div>
+    </main>
+
+    <footer>
+        <p>Todos los derechos reservados</p>
+    </footer>
+
+    <script>
+        function submitContactForm(event) {
+            event.preventDefault(); // Evita el envío del formulario
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            // Aquí podrías agregar lógica para enviar el formulario a un servidor
+            document.getElementById('responseMessage').innerText = `Gracias, ${name}. Tu mensaje ha sido enviado.`;
+            document.getElementById('contactForm').reset(); // Resetea el formulario
+            return false; // Evita el envío del formulario
+        }
+    </script>
+</body>
+</html>
